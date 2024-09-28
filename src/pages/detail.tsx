@@ -39,7 +39,7 @@ export function Detail() {
     currency: "USD",
   }).format(invoice.totalAmountDue)
 
-  const isChaseVisible = invoice.status === 'Overdue' || invoice.status === 'Pending'
+  const isChaseVisible = invoice.status === 'Overdue'
 
   return (
     <div className="p-2 text-center w-full max-w-screen-2xl sm:p-4 sm:text-left">
