@@ -18,7 +18,7 @@ To start local development, follow these steps:
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/your-repo/attelas-invoice-dashboard.git`
+1. Clone the repository: `git clone https://github.com/Luminqi/attelas-invoice-dashboard.git`
 2. Navigate to the project directory: `cd attelas-invoice-dashboard`
 3. Install dependencies: `pnpm install`
 
