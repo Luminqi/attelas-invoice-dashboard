@@ -1,14 +1,15 @@
-import { CaretSortIcon } from '@radix-ui/react-icons'
+import { TriangleUpIcon, TriangleDownIcon } from '@radix-ui/react-icons'
 import type { ColumnDef, Column } from '@tanstack/react-table'
+import { cx } from '@/common/cx'
 import { Button } from '@/components/button'
 import type { InvoiceDetail } from '@/data'
 
 export type Invoice = Pick<InvoiceDetail, 'invoiceNumber' | 'name' | 'totalAmountDue' | 'dueDate' | 'status'>
 
 function Sorter({ column, children, className }: { column: Column<Invoice>, children: React.ReactNode, className?: string }) {
-  const onClick = () => {
-    const currentSort = column.getIsSorted()
+  const currentSort = column.getIsSorted()
 
+  const onClick = () => {
     if (!currentSort) {
       column.toggleSorting(false)
     } else if (currentSort === "asc") {
@@ -25,7 +26,10 @@ function Sorter({ column, children, className }: { column: Column<Invoice>, chil
       className={className}
     >
       {children}
-      <CaretSortIcon className="ml-2 h-4 w-4" />
+      <div>
+        <TriangleUpIcon className={cx("h-4 w-4 translate-y-1", { "text-black": currentSort === "asc" })} />
+        <TriangleDownIcon className={cx("h-4 w-4 -translate-y-1", { "text-black": currentSort === "desc" })} />
+      </div>
     </Button>
   )
 }

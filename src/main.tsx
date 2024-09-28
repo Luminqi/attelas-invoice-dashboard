@@ -5,6 +5,8 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Router />
+    <div className="flex flex-col items-center">
+      <Router />
+    </div>
   </StrictMode>,
 )

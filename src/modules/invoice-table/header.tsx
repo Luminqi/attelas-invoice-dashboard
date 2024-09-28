@@ -1,5 +1,5 @@
 import { Input } from "@/components/input"
-import { ChevronDownIcon } from "@radix-ui/react-icons"
+import { GearIcon } from "@radix-ui/react-icons"
 import type { Table } from '@tanstack/react-table'
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/dropdown-menu"
 import { Button } from "@/components/button"
@@ -22,8 +22,8 @@ export function TableHeader({ table }: Props) {
       />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="ml-auto">
-            Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+          <Button variant="outline" className="ml-auto px-[9px]">
+            <GearIcon className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">

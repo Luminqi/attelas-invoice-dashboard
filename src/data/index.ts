@@ -26,6 +26,8 @@ export type InvoiceDetail = Invoice & Client & {
   totalAmountDue: number
 }
 
+type Maybe<T> = T | null | undefined
+
 export const getInvoices = (): InvoiceDetail[] => {
   return (invoices as Invoice[]).map(({ clientId, ...rest }) => {
     const client = (clients as Client[]).find(client => client.clientId === clientId)
@@ -38,4 +40,8 @@ export const getInvoices = (): InvoiceDetail[] => {
 
     return { ...rest, ...client, totalAmountDue }
   })
+}
+
+export const getInvoiceDetail = (invoiceNumber: string): Maybe<InvoiceDetail> => {
+  return getInvoices().find((invoice) => invoice.invoiceNumber === invoiceNumber)
 }
