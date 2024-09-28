@@ -1,7 +1,7 @@
 # Attelas Invoice Dashboard
 
 ## Demo
-https://attelas-invoice-dashboard.vercel.app
+https://attelas-invoice-dashboard.vercel.app/dashboard
 
 ## Overview
 
