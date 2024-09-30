@@ -1,5 +1,6 @@
 import { FileMinusIcon } from '@radix-ui/react-icons'
 import { useNavigate, useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -54,8 +55,8 @@ export function Detail() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/dashboard" className="text-lg sm:text-base">
-              Dashboard
+            <BreadcrumbLink asChild={true} className="text-lg sm:text-base">
+              <Link to="/dashboard">Dashboard</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
