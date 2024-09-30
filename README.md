@@ -1,6 +1,7 @@
 # Attelas Invoice Dashboard
 
 ## Demo
+
 https://attelas-invoice-dashboard.vercel.app/dashboard
 
 ## Overview
@@ -13,8 +14,8 @@ To start local development, follow these steps:
 
 ### Prerequisites
 
-* Node.js version >= 20.17.0 (as specified in `package.json`)
-* pnpm version 9.11.0 (as specified in `package.json`)
+- Node.js version >= 20.17.0 (as specified in `package.json`)
+- pnpm version 9.11.0 (as specified in `package.json`)
 
 ### Installation
 
@@ -38,15 +39,15 @@ To start local development, follow these steps:
 
 ## Project Structure
 
-* `src`: Source code directory
-	+ `components`: Reusable React components
-	+ `data`: Data models and API calls
-	+ `modules`: Feature-specific modules
-	+ `pages`: Page components
-	+ `common`: Utility functions and constants
-* `public`: Public assets directory
-* `tailwind.config.js`: Tailwind CSS configuration file
-* `vite.config.ts`: Vite configuration file
+- `src`: Source code directory
+  - `components`: Reusable React components
+  - `data`: Data models and API calls
+  - `modules`: Feature-specific modules
+  - `pages`: Page components
+  - `common`: Utility functions and constants
+- `public`: Public assets directory
+- `tailwind.config.js`: Tailwind CSS configuration file
+- `vite.config.ts`: Vite configuration file
 
 ## Contributing
 

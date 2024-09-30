@@ -1,19 +1,25 @@
-import { FileMinusIcon } from "@radix-ui/react-icons"
-import { useNavigate, useParams } from "react-router"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/breadcrumb"
-import { Button } from "@/components/button"
-import { getInvoiceDetail } from "@/data"
+import { FileMinusIcon } from '@radix-ui/react-icons'
+import { useNavigate, useParams } from 'react-router'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/breadcrumb'
+import { Button } from '@/components/button'
+import { getInvoiceDetail } from '@/data'
 import { ChaseButton } from '@/modules/chase-button'
 import { ClientCard } from '@/modules/client-card'
 import { InvoiceCard } from '@/modules/invoice-card'
 import { LineItemCard } from '@/modules/line-item-card'
-import { formatAmount } from "@/common/format-amount"
-
+import { formatAmount } from '@/common/format-amount'
 
 export function Detail() {
   const { invoiceId } = useParams<{ invoiceId: string }>()
   const navigate = useNavigate()
-  
+
   const invoice = invoiceId ? getInvoiceDetail(invoiceId) : null
 
   const onClick = () => {
@@ -25,10 +31,14 @@ export function Detail() {
       <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="text-center">
           <FileMinusIcon className="mx-auto h-24 w-24 text-gray-400" />
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Invoice not found</h1>
-          <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn't find the invoice you're looking for.</p>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Invoice not found
+          </h1>
+          <p className="mt-6 text-base leading-7 text-gray-600">
+            Sorry, we couldn't find the invoice you're looking for.
+          </p>
           <div className="mt-10">
-              <Button onClick={onClick}>Back to dashboard</Button>
+            <Button onClick={onClick}>Back to dashboard</Button>
           </div>
         </div>
       </div>
@@ -44,11 +54,15 @@ export function Detail() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/dashboard" className="text-lg sm:text-base">Dashboard</BreadcrumbLink>
+            <BreadcrumbLink href="/dashboard" className="text-lg sm:text-base">
+              Dashboard
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className="text-lg sm:text-base">{invoice.invoiceNumber}</BreadcrumbPage>
+            <BreadcrumbPage className="text-lg sm:text-base">
+              {invoice.invoiceNumber}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

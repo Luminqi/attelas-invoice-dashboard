@@ -1,5 +1,5 @@
-import { Button } from "@/components/button"
-import { useNavigate } from "react-router"
+import { Button } from '@/components/button'
+import { useNavigate } from 'react-router'
 
 export function NotFound() {
   const navigate = useNavigate()
@@ -16,8 +16,13 @@ export function NotFound() {
             <span className="sr-only">Error</span>
             404
           </h2>
-          <p className="text-2xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-          <p className="mt-4 mb-8 dark:text-gray-600">But don't worry, you can find plenty of other things on our dashboard.</p>
+          <p className="text-2xl font-semibold md:text-3xl">
+            Sorry, we couldn't find this page.
+          </p>
+          <p className="mt-4 mb-8 dark:text-gray-600">
+            But don't worry, you can find plenty of other things on our
+            dashboard.
+          </p>
           <Button onClick={onClick}>Back to dashboard</Button>
         </div>
       </div>

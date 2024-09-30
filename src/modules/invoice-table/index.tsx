@@ -20,9 +20,12 @@ export function InvoiceTable() {
 
   const navigate = useNavigate()
 
-  const onRowClick = useCallback((row: Row<Invoice>) => {
-    navigate(`detail/${row.getValue('invoiceNumber')}`)
-  }, [navigate])
+  const onRowClick = useCallback(
+    (row: Row<Invoice>) => {
+      navigate(`detail/${row.getValue('invoiceNumber')}`)
+    },
+    [navigate]
+  )
 
   return (
     <div className="w-full">

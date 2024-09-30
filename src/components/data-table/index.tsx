@@ -1,4 +1,4 @@
-import { 
+import {
   type Table as ITable,
   type TableOptions,
   type Row,
@@ -17,20 +17,22 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/table"
+} from '@/components/table'
 
 interface Props<TData> {
   table: ITable<TData>
   onRowClick?(row: Row<TData>): void
 }
 
-export function useTable<TData>(options: Omit<TableOptions<TData>, 'getCoreRowModel'>) {
+export function useTable<TData>(
+  options: Omit<TableOptions<TData>, 'getCoreRowModel'>
+) {
   return useReactTable({
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    ...options
+    ...options,
   })
 }
 
@@ -62,19 +64,25 @@ export function DataTable<TData>({ table, onRowClick }: Props<TData>) {
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                   onClick={() => onRowClick?.(row)}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={table.getAllColumns().length} className="h-24 text-center">
+                <TableCell
+                  colSpan={table.getAllColumns().length}
+                  className="h-24 text-center"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -84,8 +92,8 @@ export function DataTable<TData>({ table, onRowClick }: Props<TData>) {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground text-left">
-          {table.getState().pagination.pageIndex + 1} of{" "}
-          {table.getPageCount()} page(s)
+          {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}{' '}
+          page(s)
         </div>
         <div className="space-x-2">
           <Button

@@ -1,6 +1,6 @@
-import { cx } from "@/common/cx";
-import { Badge } from "@/components/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
+import { cx } from '@/common/cx'
+import { Badge } from '@/components/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/card'
 import type { InvoiceDetail } from '@/data'
 
 interface Props {
@@ -10,11 +10,11 @@ interface Props {
 function getStatusColor(status: InvoiceDetail['status']) {
   switch (status) {
     case 'Paid':
-      return 'bg-green-500';
+      return 'bg-green-500'
     case 'Pending':
-      return 'bg-gray-500';
+      return 'bg-gray-500'
     case 'Overdue':
-      return 'bg-red-500';
+      return 'bg-red-500'
   }
 }
 
@@ -37,7 +37,14 @@ export function InvoiceCard({ invoice }: Props) {
           <div>
             <dt className="font-semibold">Status</dt>
             <dd>
-              <Badge className={cx(getStatusColor(invoice.status), "pointer-events-none")}>{invoice.status}</Badge>
+              <Badge
+                className={cx(
+                  getStatusColor(invoice.status),
+                  'pointer-events-none'
+                )}
+              >
+                {invoice.status}
+              </Badge>
             </dd>
           </div>
         </dl>

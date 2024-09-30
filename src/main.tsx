@@ -8,5 +8,5 @@ createRoot(document.getElementById('root')!).render(
     <div className="flex flex-col items-center">
       <Router />
     </div>
-  </StrictMode>,
+  </StrictMode>
 )

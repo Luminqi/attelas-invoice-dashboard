@@ -1,6 +1,13 @@
-import { formatAmount } from "@/common/format-amount";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
-import { Table, TableHeader, TableBody, TableCell, TableHead, TableRow } from "@/components/table";
+import { formatAmount } from '@/common/format-amount'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/card'
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from '@/components/table'
 import type { InvoiceDetail } from '@/data'
 
 interface Props {
@@ -19,7 +26,9 @@ export function LineItemCard({ invoice }: Props) {
             <TableRow>
               <TableHead>Description</TableHead>
               <TableHead className="text-right">Quantity</TableHead>
-              <TableHead className="text-right whitespace-nowrap">Unit Price</TableHead>
+              <TableHead className="text-right whitespace-nowrap">
+                Unit Price
+              </TableHead>
               <TableHead className="text-right">Total</TableHead>
             </TableRow>
           </TableHeader>
@@ -30,7 +39,9 @@ export function LineItemCard({ invoice }: Props) {
 
               return (
                 <TableRow key={index}>
-                  <TableCell className="text-left">{item.description}</TableCell>
+                  <TableCell className="text-left">
+                    {item.description}
+                  </TableCell>
                   <TableCell className="text-right">{item.quantity}</TableCell>
                   <TableCell className="text-right">{unitPrice}</TableCell>
                   <TableCell className="text-right">{total}</TableCell>

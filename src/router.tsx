@@ -6,16 +6,16 @@ import { NotFound } from './pages/404'
 const router = createBrowserRouter([
   {
     path: '/dashboard',
-    element: <Dashboard />
+    element: <Dashboard />,
   },
   {
     path: '/dashboard/detail/:invoiceId',
-    element: <Detail />
+    element: <Detail />,
   },
   {
     path: '*',
-    element: <NotFound />
-  }
+    element: <NotFound />,
+  },
 ])
 
 export function Router() {

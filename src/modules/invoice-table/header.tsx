@@ -1,8 +1,13 @@
-import { Input } from "@/components/input"
-import { GearIcon } from "@radix-ui/react-icons"
+import { Input } from '@/components/input'
+import { GearIcon } from '@radix-ui/react-icons'
 import type { Table } from '@tanstack/react-table'
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/dropdown-menu"
-import { Button } from "@/components/button"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/components/dropdown-menu'
+import { Button } from '@/components/button'
 import type { Invoice } from './columns'
 
 interface Props {
@@ -14,9 +19,9 @@ export function TableHeader({ table }: Props) {
     <div className="flex items-center py-4">
       <Input
         placeholder="Filter client name..."
-        value={(table.getColumn('name')?.getFilterValue() as string) ?? ""}
+        value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
         onChange={(event) =>
-          table.getColumn("name")?.setFilterValue(event.target.value)
+          table.getColumn('name')?.setFilterValue(event.target.value)
         }
         className="max-w-xs mr-2"
       />
@@ -36,9 +41,7 @@ export function TableHeader({ table }: Props) {
                   key={column.id}
                   className="capitalize"
                   checked={column.getIsVisible()}
-                  onCheckedChange={(value) =>
-                    column.toggleVisibility(!!value)
-                  }
+                  onCheckedChange={(value) => column.toggleVisibility(!!value)}
                 >
                   {column.id}
                 </DropdownMenuCheckboxItem>

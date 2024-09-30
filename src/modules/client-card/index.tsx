@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/card'
 import type { InvoiceDetail } from '@/data'
 
 interface Props {

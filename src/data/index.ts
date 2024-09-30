@@ -22,26 +22,36 @@ interface Client {
   address: string
 }
 
-export type InvoiceDetail = Invoice & Client & {
-  totalAmountDue: number
-}
+export type InvoiceDetail = Invoice &
+  Client & {
+    totalAmountDue: number
+  }
 
 type Maybe<T> = T | null | undefined
 
 export const getInvoices = (): InvoiceDetail[] => {
   return (invoices as Invoice[]).map(({ clientId, ...rest }) => {
-    const client = (clients as Client[]).find(client => client.clientId === clientId)
+    const client = (clients as Client[]).find(
+      (client) => client.clientId === clientId
+    )
 
     if (!client) {
       throw new Error('[getInvoices] Client not found')
     }
 
-    const totalAmountDue = rest.lineItems.reduce((acc, item) => acc + item.quantity * item.price, 0)
+    const totalAmountDue = rest.lineItems.reduce(
+      (acc, item) => acc + item.quantity * item.price,
+      0
+    )
 
     return { ...rest, ...client, totalAmountDue }
   })
 }
 
-export const getInvoiceDetail = (invoiceNumber: string): Maybe<InvoiceDetail> => {
-  return getInvoices().find((invoice) => invoice.invoiceNumber === invoiceNumber)
+export const getInvoiceDetail = (
+  invoiceNumber: string
+): Maybe<InvoiceDetail> => {
+  return getInvoices().find(
+    (invoice) => invoice.invoiceNumber === invoiceNumber
+  )
 }
