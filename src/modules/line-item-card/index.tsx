@@ -1,3 +1,4 @@
+import { formatAmount } from "@/common/format-amount";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
 import { Table, TableHeader, TableBody, TableCell, TableHead, TableRow } from "@/components/table";
 import type { InvoiceDetail } from '@/data'
@@ -23,14 +24,19 @@ export function LineItemCard({ invoice }: Props) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoice.lineItems.map((item, index) => (
-              <TableRow key={index}>
-                <TableCell className="text-left">{item.description}</TableCell>
-                <TableCell className="text-right">{item.quantity}</TableCell>
-                <TableCell className="text-right">${item.price}</TableCell>
-                <TableCell className="text-right">${item.price * item.quantity}</TableCell>
-              </TableRow>
-            ))}
+            {invoice.lineItems.map((item, index) => {
+              const unitPrice = formatAmount(item.price)
+              const total = formatAmount(item.price * item.quantity)
+
+              return (
+                <TableRow key={index}>
+                  <TableCell className="text-left">{item.description}</TableCell>
+                  <TableCell className="text-right">{item.quantity}</TableCell>
+                  <TableCell className="text-right">{unitPrice}</TableCell>
+                  <TableCell className="text-right">{total}</TableCell>
+                </TableRow>
+              )
+            })}
           </TableBody>
         </Table>
       </CardContent>

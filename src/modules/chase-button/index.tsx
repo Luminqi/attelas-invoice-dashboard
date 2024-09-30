@@ -10,6 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/dialog'
 import { InvoiceDetail } from '@/data'
+import { formatAmount } from '@/common/format-amount'
 
 interface Props {
   invoice: InvoiceDetail
@@ -18,10 +19,7 @@ interface Props {
 export function ChaseButton({ invoice }: Props) {
   const { name, invoiceNumber, totalAmountDue, dueDate} = invoice
 
-  const amount = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(totalAmountDue)
+  const amount = formatAmount(totalAmountDue)
 
   return (
     <Dialog>

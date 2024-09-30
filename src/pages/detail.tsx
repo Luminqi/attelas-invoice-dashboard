@@ -7,6 +7,7 @@ import { ChaseButton } from '@/modules/chase-button'
 import { ClientCard } from '@/modules/client-card'
 import { InvoiceCard } from '@/modules/invoice-card'
 import { LineItemCard } from '@/modules/line-item-card'
+import { formatAmount } from "@/common/format-amount"
 
 
 export function Detail() {
@@ -34,10 +35,7 @@ export function Detail() {
     )
   }
 
-  const amount = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(invoice.totalAmountDue)
+  const amount = formatAmount(invoice.totalAmountDue)
 
   const isChaseVisible = invoice.status === 'Overdue'
 

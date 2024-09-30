@@ -3,6 +3,7 @@ import type { ColumnDef, Column } from '@tanstack/react-table'
 import { cx } from '@/common/cx'
 import { Button } from '@/components/button'
 import type { InvoiceDetail } from '@/data'
+import { formatAmount } from '@/common/format-amount'
 
 export type Invoice = Pick<InvoiceDetail, 'invoiceNumber' | 'name' | 'totalAmountDue' | 'dueDate' | 'status'>
 
@@ -65,10 +66,7 @@ export const columns: ColumnDef<Invoice>[] = [
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("totalAmountDue"))
 
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount)
+      const formatted = formatAmount(amount)
  
       return <div className="text-right font-medium">{formatted}</div>
     }
