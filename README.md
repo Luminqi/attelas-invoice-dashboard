@@ -37,6 +37,11 @@ To start local development, follow these steps:
 
 1. Run unit test: `pnpm test`
 
+### Lint
+
+1. Run eslint: `pnpm lint`
+2. Run prettier: `pnpm prettier`
+
 ## Project Structure
 
 - `src`: Source code directory
