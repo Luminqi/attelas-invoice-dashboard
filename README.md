@@ -32,6 +32,10 @@ To start local development, follow these steps:
 1. Build the application: `pnpm build`
 2. Preview the built application: `pnpm preview`
 
+### Testing
+
+1. Run unit test: `pnpm test`
+
 ## Project Structure
 
 * `src`: Source code directory
